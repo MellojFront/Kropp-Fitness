@@ -306,6 +306,11 @@ p:not([class]):not(:last-child){
   padding-inline: var(--container-padding-x);
 }
 
+.container-wide{
+  max-width: 1920px;
+  margin-inline: auto;
+}
+
 .title-medium{
 font-size: clamp(20px 2.08vw 40px);
 line-height: 1.3;
@@ -332,9 +337,10 @@ font-size: (24px, 3.12vw, 60px);
 .backdrop-title::after{
   position: absolute;
   z-index: -1;
-  top: -0.45em;
+  top: -0.3em;
   left: -0.6em;
   content: attr(data-title);
+  line-height: 1;
   color: transparent;
   font-family: var(--font-family-accent);
   font-size: 2.8em;
@@ -343,7 +349,7 @@ font-size: (24px, 3.12vw, 60px);
 }
 
 .backdrop-title.centered::after{
-  top: -0.55em;
+  top: -0.25em;
   left: 50%;
   translate: -50% 0;
 }
@@ -620,6 +626,7 @@ margin-bottom: 14px;
 }
 
 
+
 /* секция training-types */
 .training-types{
   position: relative;
@@ -660,6 +667,10 @@ margin-bottom: 14px;
   align-items: center;
   padding: 150px 50px;
   background: url(/assets/images/join-us-back.jpg) center/cover no-repeat var(--color-dark-alternate);
+}
+
+.join-us{
+  background-color: var(--color-dark-alternate);
 }
 
 
@@ -753,8 +764,43 @@ background-color: var(--color-light-gray);
   column-gap: 20px;
 }
 
+/* секция location */
+.location{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
 
+.location-body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px 15px;
+  text-align: center;
+}
 
+.location-map {
+  width: 100%;
+  max-width: 100%;
+  /* overflow: hidden; */
+}
+
+.location-map-iframe {
+  width: 100%;
+  height: 600px;
+  display: block;
+  border: none;
+}
+
+.location-body-title:not(:last-child){
+  margin-bottom: 14px;
+}
+.location-discription{
+  max-width: 490px;
+}
+.location-discription:not(:last-child){
+  margin-bottom: 37px;
+}
 
 
 
@@ -772,6 +818,9 @@ background-color: var(--color-light-gray);
 @media (max-width: 1280px){
   .training-types-list{
     grid-template-columns: repeat(3, 1fr);
+  }
+  .location-map {
+    height: 600px;
   }
 }
 @media (max-width: 1024px){
@@ -809,6 +858,13 @@ background-color: var(--color-light-gray);
 .join-us-title:not(:last-child){
   margin-bottom: 80px;
 }
+.location-map {
+    height: 700px;
+  }
+  .location{
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
 
 
@@ -875,5 +931,13 @@ background-color: var(--color-light-gray);
   align-items: center;
   row-gap: 15px;
 }
+.location-map {
+    height: 500px;
+  }
+  .location-body{
+    padding-block: 40px;
+  }
+  .location-discription:not(:last-child){
+    margin-bottom: 20px;
+  }
 }
-
